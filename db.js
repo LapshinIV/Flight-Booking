@@ -1,7 +1,7 @@
 var listOfFlights = {
 	"AB1322":{
-		"flightNumber": "AB1322", 
-		"passengers": [ 
+		flightNumber: "AB1322", 
+		passengers: [ 
 				{
 					"name":     "Dmitry Kouznetsov",
 					"booking":  "ABCDEF"
@@ -74,42 +74,41 @@ function removePassengersComponent() {
   el.parentNode.removeChild(el);
 }
 
-function parsingFlights(){
-	_.map(_.keys(listOfFlights), function(id){
-		var newDiv;
+function constructFlightNumber(){
+	var appendFlightNumbers = _.map(_.keys(listOfFlights), function(flightNumber){
+		var newFlightNumberDiv;
 		  {
-			newDiv = document.createElement('div')
-		    newDiv.id = id  						//I don't know how to generate id better...
-		    newDiv.innerHTML = id
-			newDiv.onclick = function(){onFlightClick(this)}
-			document.getElementById("flights").appendChild(newDiv)
+			newFlightNumberDiv = document.createElement('div')
+		    newFlightNumberDiv.id = flightNumber				
+		    newFlightNumberDiv.innerHTML = flightNumber
+			newFlightNumberDiv.onclick = function(){onFlightClick(this)}
+			document.getElementById("flights").appendChild(newFlightNumberDiv)
 	      }
 	})
 }
 
-function constructPassengers(el){
-	var newPBSpan
+function constructPassengers(listOfPassengers){
+	var newDiv
 		{
-			newPBSpan = document.createElement("span")
-			newPBSpan.id = "passengers"	
-			newPBSpan.innerHTML = 'Passenger Name'+" "+'Booking Number'
+			newDiv = document.createElement("div")
+			newDiv.id = "passengers"	
+			newDiv.innerHTML = 'Passenger Name'+" "+'Booking Number'
+		}
+
+	_.map(listOfPassengers, function(passengers){
+	var newPassDiv
+		{
+			newPassDiv = document.createElement("div")
+			newPassDiv.innerHTML = passengers.name+" "+passengers.booking
 		}
 		
-	_.map(el, function(id){
-	var newPasSpan
-		{
-			newPasSpan = document.createElement("div")
-			newPasSpan.innerHTML = id.name+" "+id.booking
-		}
-		
-		document.body.appendChild(newPBSpan)
-		document.getElementById("passengers").appendChild(newPasSpan)
+		document.body.appendChild(newDiv)
+		document.getElementById("passengers").appendChild(newPassDiv)
 	})
 }
 
-function onFlightClick(el){
-	console.log(el.innerHTML)
+function onFlightClick(listOfPassengers){
+	console.log(listOfPassengers.innerHTML)
 	removePassengersComponent()
-	constructPassengers(listOfFlights[el.id].passengers)
-	
+	constructPassengers(listOfFlights[listOfPassengers.id].passengers)
 }
