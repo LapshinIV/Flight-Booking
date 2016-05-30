@@ -88,6 +88,7 @@ function constructFlightNumber(){
 }
 
 function constructPassengers(listOfPassengers){
+	console.log(listOfPassengers)
 	var newDiv
 		{
 			newDiv = document.createElement("div")
@@ -96,6 +97,7 @@ function constructPassengers(listOfPassengers){
 		}
 
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
+		console.log(passengers)
 	var newPassDiv
 		{
 			newPassDiv = document.createElement("div")
@@ -107,8 +109,8 @@ function constructPassengers(listOfPassengers){
 	})
 }
 
-function onFlightClick(listOfPassengers){
-	console.log(listOfPassengers.innerHTML)
+function onFlightClick(idPassengers){
+	console.log(idPassengers)
 	removePassengersComponent()
-	constructPassengers(listOfFlights[listOfPassengers.id].passengers)
+	constructPassengers(listOfFlights[idPassengers.id].passengers)
 }
