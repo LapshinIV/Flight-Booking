@@ -1,48 +1,13 @@
-.table_col {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 14px;
-  background: white;
-  text-align: left;
-  border-collapse: collapse;
-  color: #3E4347;
-}
-.table_col th {
-font-weight: normal;
-font-size: 18px;
-border-bottom: 2px solid #F5E1A6;
-border-right: 20px solid white;
-border-left: 20px solid white;
-padding: 8px 10px;
-}
-
-.table_col td {
-border-right: 20px solid white;
-border-left: 20px solid white;
-padding: 12px 10px;
-color: #3E4347;
-}
-
-.choice:hover {
-    background: #EEEDEC; 
-    color: orange;  
-   } 
-
-
-
-/*#flights {
-  background-color: lightgreen;
-  padding: 5px;
-}
-
-.flight {
-  background-color: yellow;
+#flights {
+  width: 200px; 
+  padding: 10px; 
+  margin: auto; 
+  text-align: center
 }
 
 #passengers {
-  background-color: magenta;
-  padding: 5px;
+    width: 250px;
+    padding: 10px; 
+    margin: auto; 
+    text-align: center
 }
-
-.name {
-  background-color: salmon;
-}*/

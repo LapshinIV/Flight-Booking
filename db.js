@@ -81,7 +81,7 @@ function constructFlightNumber(){
 			newFlightNumberDiv = document.createElement('div')
 		    newFlightNumberDiv.id = flightNumber				
 		    newFlightNumberDiv.innerHTML = flightNumber
-			newFlightNumberDiv.onclick = function(){onFlightClick(this)}
+			newFlightNumberDiv.onclick = function(){return onFlightClick(this)}
 			document.getElementById("flights").appendChild(newFlightNumberDiv)
 	      }
 	})
@@ -95,7 +95,7 @@ function constructPassengers(listOfPassengers){
 			newDiv.innerHTML = 'Passenger Name'+" "+'Booking Number'
 		}
 
-	_.map(listOfPassengers, function(passengers){
+	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newPassDiv
 		{
 			newPassDiv = document.createElement("div")
