@@ -109,8 +109,8 @@ function constructPassengers(listOfPassengers){
 	})
 }
 
-function onFlightClick(idPassengers){
-	console.log(idPassengers)
+function onFlightClick(idPassenger){
+	console.log(idPassenger)
 	removePassengersComponent()
-	constructPassengers(listOfFlights[idPassengers.id].passengers)
+	constructPassengers(listOfFlights[idPassenger.id].passengers)
 }
