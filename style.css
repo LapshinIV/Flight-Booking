@@ -1,11 +1,11 @@
-#flights {
-  width: 200px; 
-  margin: auto; 
-  text-align: center
+#flights, #passengers, #booking{
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;         
+  width:300px; 
+  margin: auto;         
+  text-align: center;
+  font-family: Verdana; */*/
 }
 
-#passengers {
-    width: 250px; 
-    margin: auto; 
-    text-align: center
-}
+
+
