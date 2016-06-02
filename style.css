@@ -1,10 +1,21 @@
+#flightsNumbers, #passengersName, #bookingNumber{
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;         
+  width:300px; 
+  margin: auto;         
+  text-align: center;
+  font-family: Verdana;
+  text-decoration: underline;
+}
+
+
 #flights, #passengers, #booking{
   float:left;/*fix for  buggy browsers*/
   display:table-column;         
   width:300px; 
   margin: auto;         
   text-align: center;
-  font-family: Verdana; */*/
+  font-family: Verdana
 }
 
 

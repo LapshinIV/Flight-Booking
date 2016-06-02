@@ -1,4 +1,4 @@
-function removePassengersComponent() {
+function removePassengersandBookingComponent() {
   var passengers = document.getElementById('passengers');
   var booking = document.getElementById('booking')
   passengers.parentNode.removeChild(passengers);
@@ -19,21 +19,24 @@ function constructFlightNumber(){
 	})
 }
 
-function constructPassengers(listOfPassengers){
-	console.log(listOfPassengers)
-	var newDivPass
+function createHeaderElementsOfTable(){
+	var newHeaderPassenger
 		{
-			newDivPass = document.createElement("div")
-			newDivPass.id = "passengers"	
-			newDivPass.innerHTML = 'Passenger Name'
+			newDivPassenger = document.createElement("div")
+			newDivPassenger.id = "passengers"	
 		}
-	var newDivBook
+	var newHeaderBooking
 		{
-			newDivBook = document.createElement("div")
-			newDivBook.id = "booking"	
-			newDivBook.innerHTML = 'Booking Number'
+			newDivBooking = document.createElement("div")
+			newDivBooking.id = "booking"	
 		}
+	document.body.appendChild(newDivPassenger)
+	document.body.appendChild(newDivBooking)
+}
 
+
+function constructBookingAndPassengers(listOfPassengers){
+	console.log(listOfPassengers)
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 		console.log(passengers)
 	var newPassDiv
@@ -47,15 +50,18 @@ function constructPassengers(listOfPassengers){
 			newBookDiv.innerHTML = passengers.booking
 		}
 		
-		document.body.appendChild(newDivPass)
-		document.body.appendChild(newDivBook)
-		document.getElementById("passengers").appendChild(newPassDiv)
-		document.getElementById("booking").appendChild(newBookDiv)
+		document.getElementById("passengersName").appendChild(newPassDiv)
+		document.getElementById("bookingNumber").appendChild(newBookDiv)
 	})
 }
 
+
+
+
+
 function onFlightClick(idPassenger){
 	console.log(idPassenger.innerHTML)
-	removePassengersComponent()
-	constructPassengers(listOfFlights[idPassenger.id].passengers)
+	removePassengersandBookingComponent()
+	createHeaderElementsOfTable();
+	constructBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
 }
