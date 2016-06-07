@@ -1,4 +1,4 @@
-function removePassengersandBookingComponent() {
+function removePassengersAndBookingComponent() {
   var passengers = document.getElementById('passengersName');
   var booking = document.getElementById('bookingNumber')
   passengers.parentNode.removeChild(passengers);
@@ -7,7 +7,7 @@ function removePassengersandBookingComponent() {
 }
 
 
-function constructFlightNumber(){
+function showFlightNumber(){
 	var appendFlightNumbers = _.map(_.keys(listOfFlights), function(flightNumber){  //render in html
 		console.log(flightNumber)
 		var newFlightNumberDiv;
@@ -15,9 +15,10 @@ function constructFlightNumber(){
 			newFlightNumberDiv = document.createElement('div')
 		    newFlightNumberDiv.id = flightNumber				
 		    newFlightNumberDiv.innerHTML = flightNumber
+		    newFlightNumberDiv.className = "colortext"
 			newFlightNumberDiv.onclick = function(){return onFlightClick(this)}
-			document.getElementById("flightsNumbers").appendChild(newFlightNumberDiv) // по моему хрень... child in child?? стили..
 	      }
+	    document.getElementById("flightsNumbers").appendChild(newFlightNumberDiv) // по моему хрень... child in child?? стили..  
 	})
 }
 
@@ -39,9 +40,7 @@ function createHeaderElementsOfTable(){
 	document.body.appendChild(newDivBooking)
 }
 
-
-
-function constructBookingAndPassengers(listOfPassengers){
+function showBookingAndPassengers(listOfPassengers){
 	console.log("listofPassengers:", listOfPassengers)
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newPassDiv
@@ -63,12 +62,9 @@ function constructBookingAndPassengers(listOfPassengers){
 }
 
 
-
-
-
 function onFlightClick(idPassenger){
 	console.log(idPassenger.innerHTML)
-	removePassengersandBookingComponent()
+	removePassengersAndBookingComponent()
 	createHeaderElementsOfTable();
-	constructBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
+	showBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
 }

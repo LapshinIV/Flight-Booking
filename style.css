@@ -1,22 +1,42 @@
-#flightsNumbers, #passengersName, #bookingNumber{
+#flightsNumbers, .colortext{
   float:left;/*fix for  buggy browsers*/
   display:table-column;         
-  width:300px; 
+  width:150px;
+  height:50px;
   margin: auto;         
   text-align: center;
   font-family: Verdana;
-  text-decoration: underline;
 }
 
+.colortext:hover {
+    background-color: lightgray; 
+}
 
-#flights, #passengers, #booking{
-  float:left;/*fix for  buggy browsers*/
+#passengersName, #bookingNumber, #passengers, #booking{
+  float:left;
   display:table-column;         
   width:300px; 
+  height:50px;
   margin: auto;         
   text-align: center;
-  font-family: Verdana
+  font-family: Verdana;
+}
+
+#container {
+  width: 850px;
+  padding: auto;
+  margin: auto
 }
 
 
+#choice{
+  width: 500px;
+  margin: 5px;
+  position: absolute;
+  left: 380px;
+  top: 35px;
+  font-style: italic;
+  font-size: 10pt;
+  color: grey
 
+}
