@@ -1,10 +1,13 @@
+var _ = require('underscore');
+
+
 function removePassengersAndBookingComponent() {
   var passengers = document.getElementById('passengersName');
   var booking = document.getElementById('bookingNumber')
   passengers.parentNode.removeChild(passengers);
   booking.parentNode.removeChild(booking);
 
-}
+};
 
 
 function showFlightNumber(){
@@ -20,7 +23,7 @@ function showFlightNumber(){
 	      }
 	    document.getElementById("flightsNumbers").appendChild(newFlightNumberDiv) // по моему хрень... child in child?? стили..  
 	})
-}
+};
 
 
 function createHeaderElementsOfTable(){
@@ -59,7 +62,7 @@ function showBookingAndPassengers(listOfPassengers){
 		document.getElementById("passengersName").appendChild(newPassDiv)
 		document.getElementById("bookingNumber").appendChild(newBookDiv)
 	})
-}
+};
 
 
 function onFlightClick(idPassenger){
@@ -67,4 +70,4 @@ function onFlightClick(idPassenger){
 	removePassengersAndBookingComponent()
 	createHeaderElementsOfTable();
 	showBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
-}
+};
