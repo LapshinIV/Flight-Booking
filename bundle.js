@@ -1,6 +1,77 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
+var listOfFlights = {
+	"AB1322":{
+		flightNumber: "AB1322", 
+		passengers: [ 
+				{
+					"name":     "Dmitry Kouznetsov",
+					"booking":  "ABCDEF"
+				},
+				{
+					"name":     "Natalia Shteinikova", 
+					"booking":  "ABCDEF"
+				}, 
+		] 
+	}, 
+	"CD224":{ 
+		flightNumber: "CD224",
+		passengers: [ 
+				{
+					"name":     "Alex Emshanov",
+					"booking":  "ADADADAD"
+				},
+				{
+					"name":     "Alexandra Emshanova",
+					"booking":  "ADADADAD"
+				},
+			 {
+					"name":     "Avrora Emshanova",
+					"booking":  "ADADADAD"
+				},
+		] 
+	}, 
+	"QR335":{ 
+		flightNumber: "QR335", 
+		passengers: [ 
+				{
+					"name":     "Ivan Lapshin",
+					"booking":  "QWERT"
+				},
+				{
+					"name":     "Macaw Macaw",
+					"booking":  "QWERT"
+				},
+				{
+					"name": "Macaw1 Macaw1",
+					"booking":  "QWERT"
+				},
+		] 
+	},
+	"BB554":{ 
+		flightNumber: "BB554", 
+		passengers: [ 
+				{
+					"name":     "Parrot",
+					"booking":  "TYY"
+				},
+				{
+					"name":     "Monkey",
+					"booking":  "TYY"
+				},
+				{
+					"name": "Piton",
+					"booking":  "TYY"
+				},
+				{
+					"name": "Elephan",
+					"booking":  "TYY"
+				},
+		] 
+	}  
+}
+},{}],2:[function(require,module,exports){
 var _ = require('underscore');
+var db = require('./db.js');
 
 
 function removePassengersAndBookingComponent() {
@@ -11,7 +82,7 @@ function removePassengersAndBookingComponent() {
 
 };
 
-console.log("HI!")
+
 function showFlightNumber(){
 	var appendFlightNumbers = _.map(_.keys(listOfFlights), function(flightNumber){  //render in html
 		console.log(flightNumber)
@@ -73,7 +144,10 @@ function onFlightClick(idPassenger){
 	createHeaderElementsOfTable();
 	showBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
 };
-},{"underscore":2}],2:[function(require,module,exports){
+
+
+setTimeout(showFlightNumber, 1);
+},{"./db.js":1,"underscore":3}],3:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1623,4 +1697,4 @@ function onFlightClick(idPassenger){
   }
 }.call(this));
 
-},{}]},{},[1]);
+},{}]},{},[2]);

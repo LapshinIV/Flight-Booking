@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var db = require('./db.js');
 
 
 function removePassengersAndBookingComponent() {
@@ -71,3 +72,6 @@ function onFlightClick(idPassenger){
 	createHeaderElementsOfTable();
 	showBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
 };
+
+
+setTimeout(showFlightNumber, 1);
