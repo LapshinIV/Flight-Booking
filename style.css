@@ -30,9 +30,10 @@
 
 
 #choice{
-  width: 500px;
+  float:left;
+  display:table-column; 
+  width: 550px;
   margin: 5px;
-  position: absolute;
   left: 380px;
   top: 35px;
   font-style: italic;
