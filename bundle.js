@@ -83,7 +83,7 @@ function removePassengersAndBookingComponent() {
 };
 
 
-function showFlightNumber(){
+function showFlightNumber(parent){
 	var appendFlightNumbers = _.map(_.keys(listOfFlights), function(flightNumber){  //render in html
 		console.log(flightNumber)
 		var newFlightNumberDiv;
@@ -94,29 +94,37 @@ function showFlightNumber(){
 		    newFlightNumberDiv.className = "colortext"
 			newFlightNumberDiv.onclick = function(){return onFlightClick(this)}
 	      }
-	    document.getElementById("flightsNumbers").appendChild(newFlightNumberDiv) // по моему хрень... child in child?? стили..  
+	    parent.appendChild(newFlightNumberDiv) 
 	})
 };
 
 
-function createHeaderElementsOfTable(){
+function createHeaderElementsOfPassenger(){
 	var newHeaderPassenger
 		{
 			newDivPassenger = document.createElement("div")
 			newDivPassenger.id = "passengersName"
 			newDivPassenger.innerHTML = "Passenger Name"	
 		}
+	container.appendChild(newDivPassenger)
+}
+
+
+
+function createHeaderElementsOfBooking(){
 	var newHeaderBooking
 		{
 			newDivBooking = document.createElement("div")
 			newDivBooking.id = "bookingNumber"
 			newDivBooking.innerHTML = "Booking Number"	
 		}
-	document.body.appendChild(newDivPassenger)
-	document.body.appendChild(newDivBooking)
+	container.appendChild(newDivBooking)
 }
 
-function showBookingAndPassengers(listOfPassengers){
+
+
+
+function showPassengers(listOfPassengers){
 	console.log("listofPassengers:", listOfPassengers)
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newPassDiv
@@ -125,28 +133,42 @@ function showBookingAndPassengers(listOfPassengers){
 			newPassDiv.id = "passengers"
 			newPassDiv.innerHTML = passengers.name
 		}
+		document.getElementById("passengersName").appendChild(newPassDiv)
+	})
+};
+
+
+
+
+
+function showBooking(listOfPassengers){
+	console.log("listofPassengers:", listOfPassengers)
+	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newBookDiv
 		{
 			newBookDiv = document.createElement("div")
 			newBookDiv.id = "booking"
 			newBookDiv.innerHTML = passengers.booking
 		}
-		
-		document.getElementById("passengersName").appendChild(newPassDiv)
 		document.getElementById("bookingNumber").appendChild(newBookDiv)
 	})
 };
 
 
+
+
+
 function onFlightClick(idPassenger){
 	console.log(idPassenger.innerHTML)
 	removePassengersAndBookingComponent()
-	createHeaderElementsOfTable();
-	showBookingAndPassengers(listOfFlights[idPassenger.id].passengers)
+	createHeaderElementsOfPassenger();
+	createHeaderElementsOfBooking();
+	showPassengers(listOfFlights[idPassenger.id].passengers)
+	showBooking(listOfFlights[idPassenger.id].passengers)
 };
 
 
-setTimeout(showFlightNumber, 1);
+setTimeout(function(){showFlightNumber(document.getElementById("flightsNumbers"))}, 1);
 },{"./db.js":1,"underscore":3}],3:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
