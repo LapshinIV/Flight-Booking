@@ -76,16 +76,13 @@ var _ = require('underscore');
 var listOfFlights = require('./db.js');
 
 
-function removePassengersAndBookingComponent() {
-  var passengers = document.getElementById('passengersName');
-  var booking = document.getElementById('bookingNumber')
-  passengers.parentNode.removeChild(passengers);
-  booking.parentNode.removeChild(booking);
+function removePassengersAndBookingComponent(getIdPassengerName, getIdBookingNumber) {
+  getIdPassengerName.parentNode.removeChild(getIdPassengerName);
+  getIdBookingNumber.parentNode.removeChild(getIdBookingNumber);
 
 };
 
-
-function showFlightNumber(parentFlights){
+function showFlightNumber(getIdFlights){
 	var appendFlightNumbers = _.map(_.keys(listOfFlights), function(flightNumber){  //render in html
 		var newFlightNumberDiv;
 		  {
@@ -95,10 +92,9 @@ function showFlightNumber(parentFlights){
 		    newFlightNumberDiv.className = "colortext"
 			newFlightNumberDiv.onclick = function(){return onFlightClick(this)}
 	      }
-	    parentFlights.appendChild(newFlightNumberDiv) 
+	    getIdFlights.appendChild(newFlightNumberDiv) 
 	})
 };
-
 
 function createHeaderElementsOfPassenger(PositionContainer){										
 	var newHeaderPassenger
@@ -110,8 +106,6 @@ function createHeaderElementsOfPassenger(PositionContainer){
 	PositionContainer.appendChild(newDivPassenger)
 }
 
-
-
 function createHeaderElementsOfBooking(PositionContainer){										
 	var newHeaderBooking
 		{
@@ -122,10 +116,7 @@ function createHeaderElementsOfBooking(PositionContainer){
 	PositionContainer.appendChild(newDivBooking)
 }
 
-
-
-
-function showPassengers(listOfPassengers, findIdPassengerName){										
+function showPassengers(listOfPassengers, getIdPassengerName){										
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newPassDiv
 		{
@@ -133,15 +124,11 @@ function showPassengers(listOfPassengers, findIdPassengerName){
 			newPassDiv.id = "passengers"
 			newPassDiv.innerHTML = passengers.name
 		}
-		findIdPassengerName.appendChild(newPassDiv)
+		getIdPassengerName.appendChild(newPassDiv)
 	})
 };
 
-
-
-
-
-function showBooking(listOfPassengers, findIdBookingNumber){										
+function showBooking(listOfPassengers, getIdBookingNumber){										
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newBookDiv
 		{
@@ -149,17 +136,13 @@ function showBooking(listOfPassengers, findIdBookingNumber){
 			newBookDiv.id = "booking"
 			newBookDiv.innerHTML = passengers.booking
 		}
-		findIdBookingNumber.appendChild(newBookDiv)
+		getIdBookingNumber.appendChild(newBookDiv)
 	})
 };
 
-
-
-
-
 function onFlightClick(idPassenger){
 	console.log(idPassenger.innerHTML)
-	removePassengersAndBookingComponent()
+	removePassengersAndBookingComponent(document.getElementById('passengersName'), document.getElementById('bookingNumber'))
 	createHeaderElementsOfPassenger(container);
 	createHeaderElementsOfBooking(container);
 	showPassengers(listOfFlights[idPassenger.id].passengers, document.getElementById("passengersName"))
