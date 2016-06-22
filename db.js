@@ -68,3 +68,5 @@ var listOfFlights = {
 		] 
 	}  
 }
+
+module.exports = listOfFlights;
