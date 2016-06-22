@@ -51,7 +51,7 @@ function createHeaderElementsOfBooking(PositionContainer){
 
 
 
-function showPassengers(listOfPassengers, idPassengerName){										
+function showPassengers(listOfPassengers, findIdPassengerName){										
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newPassDiv
 		{
@@ -59,7 +59,7 @@ function showPassengers(listOfPassengers, idPassengerName){
 			newPassDiv.id = "passengers"
 			newPassDiv.innerHTML = passengers.name
 		}
-		idPassengerName.appendChild(newPassDiv)
+		findIdPassengerName.appendChild(newPassDiv)
 	})
 };
 
@@ -67,7 +67,7 @@ function showPassengers(listOfPassengers, idPassengerName){
 
 
 
-function showBooking(listOfPassengers, idBookingNumber){										
+function showBooking(listOfPassengers, findIdBookingNumber){										
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
 	var newBookDiv
 		{
@@ -75,7 +75,7 @@ function showBooking(listOfPassengers, idBookingNumber){
 			newBookDiv.id = "booking"
 			newBookDiv.innerHTML = passengers.booking
 		}
-		idBookingNumber.appendChild(newBookDiv)
+		findIdBookingNumber.appendChild(newBookDiv)
 	})
 };
 
