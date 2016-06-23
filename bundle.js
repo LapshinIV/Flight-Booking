@@ -99,22 +99,25 @@ function showFlightNumber(getIdFlights){
 function createHeaderElementsOfPassenger(PositionContainer){										
 	var newHeaderPassenger
 		{
-			newDivPassenger = document.createElement("div")
-			newDivPassenger.id = "passengersName"
-			newDivPassenger.innerHTML = "Passenger Name"	
+			newHeaderPassenger = document.createElement("div")
+			newHeaderPassenger.id = "passengersName"
+			newHeaderPassenger.innerHTML = "Passenger Name"	
 		}
-	PositionContainer.appendChild(newDivPassenger)
+	 PositionContainer.appendChild(newHeaderPassenger)
 }
 
 function createHeaderElementsOfBooking(PositionContainer){										
 	var newHeaderBooking
 		{
-			newDivBooking = document.createElement("div")
-			newDivBooking.id = "bookingNumber"
-			newDivBooking.innerHTML = "Booking Number"	
+			newHeaderBooking = document.createElement("div")
+			newHeaderBooking.id = "bookingNumber"
+			newHeaderBooking.innerHTML = "Booking Number"	
 		}
-	PositionContainer.appendChild(newDivBooking)
+	 PositionContainer.appendChild(newHeaderBooking)
 }
+
+
+
 
 function showPassengers(listOfPassengers, getIdPassengerName){										
 	var appendPassengersList = _.map(listOfPassengers, function(passengers){
